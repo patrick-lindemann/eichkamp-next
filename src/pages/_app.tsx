@@ -8,8 +8,11 @@ export type NextApp<P extends AppProps = AppProps> = (props: P) => void;
 export const App: NextApp = ({ Component, pageProps }) => {
   const isAdminPage = useRouter().pathname.startsWith('/admin');
   const Layout = isAdminPage ? AdminLayout : BaseLayout;
-
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 };
 
 export default App;
