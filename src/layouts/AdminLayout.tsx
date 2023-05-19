@@ -5,6 +5,7 @@ import {
   AdminSidebarHeader,
   AdminSidebarItem
 } from '@/components';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 /* Types */
@@ -20,7 +21,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => (
     <AdminHeader />
     <AdminSidebar>
       <AdminSidebarHeader text="Menu" />
-      <AdminSidebarItem text="Dashboard" href="#" />
+      <AdminSidebarItem text="Dashboard" href="#" icon={faHome} />
       <AdminSidebarItem text="Inbox" href="#" />
       <AdminSidebarItem text="Messages" href="#" />
       <AdminSidebarItem text="Notifications" href="#" />
