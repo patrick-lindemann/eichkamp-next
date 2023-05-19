@@ -1,0 +1,42 @@
+datasource db {
+  provider = "sqlite"
+  url = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime? @map("email_verified")
+  passwordHash  String    @map("password_hash")   
+  image         String?
+  logins        Login[]
+  posts         Post[]
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  @@map("users")
+}
+
+model Login {
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String    @map("user_id")
+  timestamp   DateTime  @default(now())
+  @@map("logins")
+  @@unique([userId, timestamp])
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  author      User?    @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  authorId    String?  @map("author_id")
+  published   Boolean? @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  @@map("posts")
+}
