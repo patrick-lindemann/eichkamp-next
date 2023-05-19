@@ -15,5 +15,3 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => (
 BaseLayout.propTypes = {
   children: PropTypes.node
 };
-
-export default BaseLayout;
