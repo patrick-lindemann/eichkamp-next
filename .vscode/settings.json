@@ -1,0 +1,27 @@
+{
+    "[typescript]": {
+      "editor.tabSize": 4,
+      "editor.autoIndent": "full",
+      "editor.detectIndentation": false,
+      "editor.formatOnSave": true,
+    },
+    "[typescriptreact]": {
+      "editor.tabSize": 2,
+      "editor.autoIndent": "full",
+      "editor.detectIndentation": false,
+      "editor.formatOnSave": true,
+    },
+    "eslint.validate": [
+      "html",
+      "javascript",
+      "typescript"
+    ],
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": true
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true
+  }
